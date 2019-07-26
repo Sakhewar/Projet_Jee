@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="template/ui.xhtml">
+	<ui:define name="body">
+		<h3>Welcome to M1SIR (Pure JSF)</h3>
+		<hr />
+		<h4>PrimeFaces</h4>
+		<h:form id="primeForm">
+			<h:messages globalOnly="true" style="color:red"></h:messages>
+			<h:panelGroup id="logGroup">
+				<h:outputText value="Login" />
+				<p:inputText id="login" value="#{utilisateurBean.login}"/><br/>
+			</h:panelGroup>
+			<h:panelGroup id="passwordGroup">
+				<h:outputText value="Password" />
+				<p:inputText id="password" value="#{utilisateurBean.password}"/>
+			</h:panelGroup>
+			<h:commandButton value="Se connecter" action="#{utilisateurBean.connexion}"/>
+		</h:form>
+	</ui:define>
+</ui:composition>

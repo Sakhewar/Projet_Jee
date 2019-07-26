@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view locale="en">
+
+	<h:head>
+
+		<title><ui:insert name="title">Commerçant</ui:insert></title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="my.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="tableau.css"></h:outputStylesheet>
+
+	</h:head>
+
+	<p:layout fullPage="true" styleClass="a">
+		<p:layoutUnit position="north" size="80" styleClass="header"
+			collapsible="true" gutter="0">
+
+			<h:form style="padding: 15px;">
+
+				<div style="float: left;">
+					<p:link
+						style="color: white; background:none ; font-size: 20px; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif;"
+						value="Accueil"></p:link>
+				</div>
+
+				<div style="float: right;">
+					<p:link
+						style="color: white; background:none ; font-size: 20px; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif;"
+						value="Ajouter Un produit"
+						outcome="/commercant/produit/insertionproduit"></p:link>
+					<p:link
+						style="color: white; background:none ; font-size: 20px; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif;"
+						value="Gérer Les Produits"
+						outcome="/commercant/produit/affichageproduit"></p:link>
+					<p:link
+						style=" color:white ; background:none ; font-size: 20px; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif;"
+						value="Deconnexion"></p:link>
+				</div>
+			</h:form>
+
+		</p:layoutUnit>
+
+
+
+		<p:layoutUnit position="center">
+
+			<p:layout>
+
+				<p:layoutUnit collapsible="true" gutter="0" position="west"
+					size="217" styleClass="menu">
+
+					<ui:insert name="menu">Menu</ui:insert>
+
+				</p:layoutUnit>
+
+				<p:layoutUnit size="2000" collapsible="true" gutter="0" position="center">
+
+					<ui:insert name="center">Menu</ui:insert>
+
+				</p:layoutUnit>
+
+				<p:layoutUnit styleClass="footer" position="south" size="50"
+					collapsible="true" gutter="0">
+
+					<ui:insert name="footer">Footer</ui:insert>
+
+				</p:layoutUnit>
+
+
+			</p:layout>
+
+		</p:layoutUnit>
+
+	</p:layout>
+</f:view>
+</html>

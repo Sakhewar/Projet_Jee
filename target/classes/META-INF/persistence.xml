@@ -1,0 +1,61 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="persistence-unit"
+		transaction-type="RESOURCE_LOCAL">
+ 
+	   <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	   <!--  provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+		<class>sn.ucad.gestionCommerciale.metier.Administrateur</class>
+		<class>sn.ucad.gestionCommerciale.metier.Boutique</class>
+		<class>sn.ucad.gestionCommerciale.metier.Boutiquier</class>
+		<class>sn.ucad.gestionCommerciale.metier.Categorie</class>
+		<class>sn.ucad.gestionCommerciale.metier.Client</class>
+		<class>sn.ucad.gestionCommerciale.metier.Clientvirtuel</class>
+		<class>sn.ucad.gestionCommerciale.metier.Commande</class>
+		<class>sn.ucad.gestionCommerciale.metier.Commercant</class>
+		<class>sn.ucad.gestionCommerciale.metier.Commune</class>
+		<class>sn.ucad.gestionCommerciale.metier.Compte</class>
+		<class>sn.ucad.gestionCommerciale.metier.Conditionnement</class>
+		<class>sn.ucad.gestionCommerciale.metier.Departement</class>
+		<class>sn.ucad.gestionCommerciale.metier.Detailrav</class>
+		<class>sn.ucad.gestionCommerciale.metier.DetailravPK</class>
+		<class>sn.ucad.gestionCommerciale.metier.Facturecommande</class>
+		<class>sn.ucad.gestionCommerciale.metier.Facturerav</class>
+		<class>sn.ucad.gestionCommerciale.metier.Format</class>
+		<class>sn.ucad.gestionCommerciale.metier.Image</class>
+		<class>sn.ucad.gestionCommerciale.metier.Lignecommande</class>
+		<class>sn.ucad.gestionCommerciale.metier.LignecommandePK</class>
+		<class>sn.ucad.gestionCommerciale.metier.Lignestock</class>
+		<class>sn.ucad.gestionCommerciale.metier.LignestockPK</class>
+		<class>sn.ucad.gestionCommerciale.metier.Lignestockboutique</class>
+		<class>sn.ucad.gestionCommerciale.metier.LignestockboutiquePK</class>
+		<class>sn.ucad.gestionCommerciale.metier.Marque</class>
+		<class>sn.ucad.gestionCommerciale.metier.Operation</class>
+		<class>sn.ucad.gestionCommerciale.metier.Produit</class>
+		<class>sn.ucad.gestionCommerciale.metier.Quartier</class>
+		<class>sn.ucad.gestionCommerciale.metier.Ravitaillement</class>
+		<class>sn.ucad.gestionCommerciale.metier.Region</class>
+		<class>sn.ucad.gestionCommerciale.metier.Stock</class>
+		<class>sn.ucad.gestionCommerciale.metier.Stockboutique</class>
+		<class>sn.ucad.gestionCommerciale.metier.Utilisateur</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:postgresql://localhost:5433/bdjee" />
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.password"
+				value="sakhewar" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQLDialect" />
+			<!-- property name="hibernate.hbm2ddl.auto" value="update" /-->
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+		</properties>
+
+	</persistence-unit>
+
+</persistence>

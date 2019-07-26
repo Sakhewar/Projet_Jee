@@ -1,0 +1,6 @@
+sn/ucad/gestionCommerciale/service/UtilisateurService.class
+sn/ucad/gestionCommerciale/dao/UtilisateurDao.class
+sn/ucad/gestionCommerciale/metier/Utilisateur.class
+sn/ucad/gestionCommerciale/utilitaire/JpaUtil.class
+sn/ucad/gestionCommerciale/controller/UtilisateurBean.class
+sn/ucad/gestionCommerciale/utilitaire/SpringUtil.class

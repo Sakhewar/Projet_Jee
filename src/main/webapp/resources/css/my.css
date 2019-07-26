@@ -1,0 +1,31 @@
+#InsertForm {
+	background-color: white;
+	padding: 10px 16px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	border: 2px solid #abc;
+}
+
+.container { 
+	margin-top: 30px;
+}
+
+.btnadd {
+	margin-left: 220px;
+}
+
+.header .ui-layout-unit-content {
+	background-color: black;
+
+}
+
+.ui-layout-unit{
+	border: 0 ;
+	background-color: black;
+}
+.menu .ui-layout-unit-content{
+	background: #abc ; 
+}
+.footer .ui-layout-unit-content{
+	background: black;
+}
+

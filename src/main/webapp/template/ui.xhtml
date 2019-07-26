@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="en">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+
+		<h:outputStylesheet library="css" name="my.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="tableau.css"></h:outputStylesheet>
+		
+		
+		<div class="header">
+		    
+			<div class="liens">
+			
+			<h:link style="text-decoration: none; font-weight:bold; float: left; padding: 17px; color: white; text-align: none; font-size: 18px; line-height: 10px; border-radius: 4px; margin-top: 5px; font-size: 18px; background-color: green; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; margin: 10px;" outcome="/commercant/produit/insertionproduit">Ajouter Un produit</h:link>
+                
+			<h:link href="#"	style="text-decoration: none; font-weight:bold; float: left; padding: 17px; color: white; text-align: none; font-size: 18px; line-height: 10px; border-radius: 4px; margin-top: 5px; font-size: 18px; background-color: green; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; margin: 10px;" outcome="/commercant/produit/affichageproduit">Gerer les produits</h:link>
+				<a href="#"	style="text-decoration: none; font-weight:bold; float: left; padding: 17px; color: white; text-align: none; font-size: 18px; line-height: 10px; border-radius: 4px; margin-top: 5px; font-size: 18px; background-color: green; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; margin: 10px;">Gerer le stock</a>
+				<a href="#"	style="text-decoration: none; font-weight:bold; float: left; padding: 17px; color: white; text-align: none; font-size: 18px; line-height: 10px; border-radius: 4px; margin-top: 5px; font-size: 18px; background-color: green; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; margin: 10px;">Commerçant</a>
+				<a href="#"	style="text-decoration: none; font-weight:bold; float: left; padding: 17px; color: white; text-align: none; font-size: 18px; line-height: 10px; border-radius: 4px; margin-top: 5px; font-size: 18px; background-color: green; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial, sans-serif; margin: 10px;">Client</a>
+
+			</div>
+
+		</div>
+
+		<ui:insert name="header">
+			<title>Insertion Produit</title>
+		</ui:insert>
+		<h:outputScript library="javax.faces" name="jsf.js" target="head" />
+	</h:head>
+
+	<h:body>
+	
+		<ui:insert name="body">
+		</ui:insert>
+		<ui:insert name="script">
+		</ui:insert>
+	</h:body>
+</f:view>
+</html>

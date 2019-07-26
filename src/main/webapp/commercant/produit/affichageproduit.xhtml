@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <div xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	>
+
+<ui:composition template="../../template/templateCom.xhtml">
+<!-- template="../../template/ui.xhtml" -->
+
+		<ui:define name="center">
+
+
+			<div  class="container">
+
+				<h:form  id="affichage">
+
+					<!-- lst is the result of getLst in managedBean-->
+					<h:dataTable  value="#{commercantBean.affiche()}"  var="m"
+						styleClass="order-table" headerClass="order-table-header"
+						rowClasses="order-table-add-row , order-table-even-row">
+
+						<h:column>
+							<f:facet name="header">libelle</f:facet>
+	#{m.libelle}
+	</h:column>
+
+						<h:column>
+							<f:facet name="header">Quantitte</f:facet>
+	#{m.quantiteprod}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Description</f:facet>
+	#{m.description}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Categorie</f:facet>
+	#{m.categorieBean.libellecategorie}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Format</f:facet>
+	#{m.formatBean.libelleformat}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Conditionnement</f:facet>
+	#{m.conditionnementBean.libelleconditionnement}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Marque</f:facet>
+	#{m.marqueBean.libellemarque}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Prix Unitaire</f:facet>
+	#{m.prixu}
+	</h:column>
+						<h:column>
+							<f:facet name="header">Prix Achat</f:facet>
+	#{m.prixachat}
+	</h:column>
+						<h:column>
+
+							<f:facet name="header">Action</f:facet>
+						
+							<p:commandButton icon="ui-icon-pencil" style="background:grey ;"
+								onclick="PF('EditProduit').show() ;" />
+
+							
+
+						</h:column>
+
+
+
+
+
+					</h:dataTable>
+
+				</h:form>
+			</div>
+			<ui:include src="modifierproduit.xhtml"></ui:include>
+
+
+
+
+		</ui:define>
+
+		<ui:define name="menu">
+
+			<ui:include src="menucom.xhtml"></ui:include>
+
+		</ui:define>
+
+	</ui:composition>
+</div>
