@@ -10,9 +10,10 @@ public class SpringUtil {
 	static {
 
 		try {
-			 System.out.println("spring util 1 ==>");
+			 System.out.println("spring util 1 static debut ==>");
 			 context = new ClassPathXmlApplicationContext (SPRING_BEANS);
-			 System.out.println("spring util 2 ==>");
+			 System.out.println("valeur de context apres static try "+ context);
+			 System.out.println("spring util 2 static fin ==>");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -20,13 +21,14 @@ public class SpringUtil {
 	}
 
 	public static ClassPathXmlApplicationContext getContext () {
+		System.out.println("valeur de context "+ context);
 		if (context == null) {
 			try {
-				 System.out.println("spring util ==>");
+				 System.out.println("spring util public static debut==>");
 				context = new ClassPathXmlApplicationContext(SPRING_BEANS);
-				System.out.println("spring util ==>");
+				System.out.println("spring util public static fin ==>");
 			} catch (Exception e) {
-				e.printStackTrace();
+				
 			}
 		}
 		return context;
@@ -37,7 +39,7 @@ public class SpringUtil {
 		try {
 			bean = getContext().getBean(name);
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		return bean;
 	}

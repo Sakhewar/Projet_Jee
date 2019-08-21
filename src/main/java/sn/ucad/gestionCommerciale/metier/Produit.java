@@ -12,9 +12,7 @@ import java.util.List;
 @Entity
 @NamedQuery(name="Produit.findAll", query="SELECT p FROM Produit p")
 public class Produit implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
-	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,11 +28,6 @@ public class Produit implements Serializable {
 
 	private Integer quantiteprod;
 
-
-	//bi-directional many-to-one association to Detailrav
-	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
-	private List<Detailrav> detailravs;
-
 	//bi-directional many-to-one association to Image
 	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
 	private List<Image> images;
@@ -42,14 +35,6 @@ public class Produit implements Serializable {
 	//bi-directional many-to-one association to Lignecommande
 	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
 	private List<Lignecommande> lignecommandes;
-
-	//bi-directional many-to-one association to Lignestock
-	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
-	private List<Lignestock> lignestocks;
-
-	//bi-directional many-to-one association to Lignestockboutique
-	@OneToMany(mappedBy="produit", fetch=FetchType.EAGER)
-	private List<Lignestockboutique> lignestockboutiques;
 
 	//bi-directional many-to-one association to Categorie
 	@ManyToOne
@@ -122,28 +107,6 @@ public class Produit implements Serializable {
 		this.quantiteprod = quantiteprod;
 	}
 
-	public List<Detailrav> getDetailravs() {
-		return this.detailravs;
-	}
-
-	public void setDetailravs(List<Detailrav> detailravs) {
-		this.detailravs = detailravs;
-	}
-
-	public Detailrav addDetailrav(Detailrav detailrav) {
-		getDetailravs().add(detailrav);
-		detailrav.setProduit(this);
-
-		return detailrav;
-	}
-
-	public Detailrav removeDetailrav(Detailrav detailrav) {
-		getDetailravs().remove(detailrav);
-		detailrav.setProduit(null);
-
-		return detailrav;
-	}
-
 	public List<Image> getImages() {
 		return this.images;
 	}
@@ -186,50 +149,6 @@ public class Produit implements Serializable {
 		lignecommande.setProduit(null);
 
 		return lignecommande;
-	}
-
-	public List<Lignestock> getLignestocks() {
-		return this.lignestocks;
-	}
-
-	public void setLignestocks(List<Lignestock> lignestocks) {
-		this.lignestocks = lignestocks;
-	}
-
-	public Lignestock addLignestock(Lignestock lignestock) {
-		getLignestocks().add(lignestock);
-		lignestock.setProduit(this);
-
-		return lignestock;
-	}
-
-	public Lignestock removeLignestock(Lignestock lignestock) {
-		getLignestocks().remove(lignestock);
-		lignestock.setProduit(null);
-
-		return lignestock;
-	}
-
-	public List<Lignestockboutique> getLignestockboutiques() {
-		return this.lignestockboutiques;
-	}
-
-	public void setLignestockboutiques(List<Lignestockboutique> lignestockboutiques) {
-		this.lignestockboutiques = lignestockboutiques;
-	}
-
-	public Lignestockboutique addLignestockboutique(Lignestockboutique lignestockboutique) {
-		getLignestockboutiques().add(lignestockboutique);
-		lignestockboutique.setProduit(this);
-
-		return lignestockboutique;
-	}
-
-	public Lignestockboutique removeLignestockboutique(Lignestockboutique lignestockboutique) {
-		getLignestockboutiques().remove(lignestockboutique);
-		lignestockboutique.setProduit(null);
-
-		return lignestockboutique;
 	}
 
 	public Categorie getCategorieBean() {

@@ -15,7 +15,7 @@ public class Commercant implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idcommercant;
 
 	//bi-directional many-to-one association to Boutique
@@ -30,10 +30,6 @@ public class Commercant implements Serializable {
 	@OneToMany(mappedBy="commercant", fetch=FetchType.EAGER)
 	private List<Client> clients;
 
-	//bi-directional many-to-one association to Clientvirtuel
-	@OneToMany(mappedBy="commercant", fetch=FetchType.EAGER)
-	private List<Clientvirtuel> clientvirtuels;
-
 	//bi-directional one-to-one association to Utilisateur
 	@OneToOne
 	@JoinColumn(name="idcommercant")
@@ -42,10 +38,6 @@ public class Commercant implements Serializable {
 	//bi-directional many-to-one association to Compte
 	@OneToMany(mappedBy="commercant", fetch=FetchType.EAGER)
 	private List<Compte> comptes;
-
-	//bi-directional many-to-one association to Ravitaillement
-	@OneToMany(mappedBy="commercant", fetch=FetchType.EAGER)
-	private List<Ravitaillement> ravitaillements;
 
 	//bi-directional many-to-one association to Stock
 	@OneToMany(mappedBy="commercant", fetch=FetchType.EAGER)
@@ -128,28 +120,6 @@ public class Commercant implements Serializable {
 		return client;
 	}
 
-	public List<Clientvirtuel> getClientvirtuels() {
-		return this.clientvirtuels;
-	}
-
-	public void setClientvirtuels(List<Clientvirtuel> clientvirtuels) {
-		this.clientvirtuels = clientvirtuels;
-	}
-
-	public Clientvirtuel addClientvirtuel(Clientvirtuel clientvirtuel) {
-		getClientvirtuels().add(clientvirtuel);
-		clientvirtuel.setCommercant(this);
-
-		return clientvirtuel;
-	}
-
-	public Clientvirtuel removeClientvirtuel(Clientvirtuel clientvirtuel) {
-		getClientvirtuels().remove(clientvirtuel);
-		clientvirtuel.setCommercant(null);
-
-		return clientvirtuel;
-	}
-
 	public Utilisateur getUtilisateur() {
 		return this.utilisateur;
 	}
@@ -178,28 +148,6 @@ public class Commercant implements Serializable {
 		compte.setCommercant(null);
 
 		return compte;
-	}
-
-	public List<Ravitaillement> getRavitaillements() {
-		return this.ravitaillements;
-	}
-
-	public void setRavitaillements(List<Ravitaillement> ravitaillements) {
-		this.ravitaillements = ravitaillements;
-	}
-
-	public Ravitaillement addRavitaillement(Ravitaillement ravitaillement) {
-		getRavitaillements().add(ravitaillement);
-		ravitaillement.setCommercant(this);
-
-		return ravitaillement;
-	}
-
-	public Ravitaillement removeRavitaillement(Ravitaillement ravitaillement) {
-		getRavitaillements().remove(ravitaillement);
-		ravitaillement.setCommercant(null);
-
-		return ravitaillement;
 	}
 
 	public List<Stock> getStocks() {

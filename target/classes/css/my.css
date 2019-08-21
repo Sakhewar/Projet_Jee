@@ -2,11 +2,18 @@
 	background-color: white;
 	padding: 10px 16px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	border: 2px solid #abc;
+	border: 1px solid #abc;
 }
 
-.container { 
+.ui-layout-unit {
+	background: white;
+	border:0;
+	border-radius: 0;
+}
+
+.container {
 	margin-top: 30px;
+	width: 1300px;
 }
 
 .btnadd {
@@ -14,18 +21,30 @@
 }
 
 .header .ui-layout-unit-content {
-	background-color: black;
-
+	background-color: white;
 }
 
-.ui-layout-unit{
-	border: 0 ;
-	background-color: black;
+.menu .ui-layout-unit-content {
+	background-color:#f0f0f0;
+	
 }
-.menu .ui-layout-unit-content{
-	background: #abc ; 
+.center .ui-layout-unit-content {
+
+	
 }
-.footer .ui-layout-unit-content{
+.footer .ui-layout-unit-content {
 	background: black;
+	color:white;
 }
 
+.link {
+	margin-left: 15px;
+	font-size:10px; 
+	background-color: green;
+}
+
+.button-menu {
+	padding: 10px;
+	background: none;
+	border-bottom: 3px solid white;
+}

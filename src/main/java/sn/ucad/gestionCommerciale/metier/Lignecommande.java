@@ -22,12 +22,12 @@ public class Lignecommande implements Serializable {
 
 	//bi-directional many-to-one association to Commande
 	@ManyToOne
-	@JoinColumn(name="idcommande" ,  insertable=false , updatable=false)
+	@JoinColumn(name="idcommande" ,  insertable = false , updatable = false)
 	private Commande commande;
 
 	//bi-directional many-to-one association to Produit
 	@ManyToOne
-	@JoinColumn(name="idproduit" ,  insertable=false , updatable=false)
+	@JoinColumn(name="idproduit" , insertable = false , updatable = false)
 	private Produit produit;
 
 	public Lignecommande() {

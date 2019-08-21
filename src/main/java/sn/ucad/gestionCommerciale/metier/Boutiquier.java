@@ -15,8 +15,10 @@ public class Boutiquier implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idboutiquier;
+
+	private Integer idlocalisation;
 
 	private String numero;
 
@@ -47,6 +49,14 @@ public class Boutiquier implements Serializable {
 
 	public void setIdboutiquier(Integer idboutiquier) {
 		this.idboutiquier = idboutiquier;
+	}
+
+	public Integer getIdlocalisation() {
+		return this.idlocalisation;
+	}
+
+	public void setIdlocalisation(Integer idlocalisation) {
+		this.idlocalisation = idlocalisation;
 	}
 
 	public String getNumero() {

@@ -15,8 +15,10 @@ public class Operation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idoperations;
+
+	private double montant;
 
 	private String typeoperation;
 
@@ -39,6 +41,14 @@ public class Operation implements Serializable {
 
 	public void setIdoperations(Integer idoperations) {
 		this.idoperations = idoperations;
+	}
+
+	public double getMontant() {
+		return this.montant;
+	}
+
+	public void setMontant(double montant) {
+		this.montant = montant;
 	}
 
 	public String getTypeoperation() {

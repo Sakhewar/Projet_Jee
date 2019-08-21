@@ -1,6 +1,7 @@
 package sn.ucad.gestionCommerciale.dao;
 
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -9,8 +10,12 @@ import sn.ucad.gestionCommerciale.metier.*;
 import sn.ucad.gestionCommerciale.utilitaire.JpaUtil;
 import sn.ucad.gestionCommerciale.utilitaire.SpringUtil;
 
-public class CommercantDao {
+public class CommercantDao implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4034168908190741964L;
 	EntityManager em =  JpaUtil.getEntityManager() ; 
 	
 	/* Début des méthodes de produit CRUD DE PRODUIT */
@@ -49,17 +54,40 @@ public class CommercantDao {
 		Query queryObj = em.createQuery("SELECT u FROM Produit u ORDER BY (idproduit) DESC" , Produit.class);
 		@SuppressWarnings("rawtypes")
 		List utilisateurList = queryObj.getResultList();
+		try {
 		if (utilisateurList != null && utilisateurList.size() > 0) { 
-			em.close();
 			return utilisateurList;
 			
-		} else {
-			return null;
 		}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		em.close();
+		return utilisateurList;
 		
 	}
 	
-	/*public void delete(Produit produit) {
+	
+	public Object Listp(){ 
+		EntityManager em =  JpaUtil.getEntityManager() ; 
+		
+		Query queryObj = em.createQuery("SELECT u FROM Produit u ORDER BY (idproduit) DESC" , Produit.class);
+		@SuppressWarnings("rawtypes")
+		List utilisateurList = queryObj.getResultList();
+		try {
+		if (utilisateurList != null && utilisateurList.size() > 0) { 
+			return utilisateurList;
+			
+		}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		em.close();
+		return utilisateurList;
+		
+	}
+	
+	 public void delete(Produit produit) {
 		EntityManager em =  JpaUtil.getEntityManager() ; 
 		EntityTransaction te = em.getTransaction();
 		te.begin();
@@ -67,7 +95,7 @@ public class CommercantDao {
 		em.remove(produit);
 		te.commit();
         em.close();
-	}*/
+	}
 	
 	public void clear(Produit produit) {
 		 

@@ -1,5 +1,5 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
@@ -8,22 +8,21 @@
 
 
 	<!-- metier -->
-	<bean name="produit"
+	<bean name="produit" id="produit"
 		class="sn.ucad.gestionCommerciale.metier.Produit"></bean> <!-- Bean produit -->
-	<bean name="categorie"
+	<bean name="categorie" id="categorie"
 		class="sn.ucad.gestionCommerciale.metier.Categorie"></bean> <!-- Bean categorie -->
-	<bean name="format" 
+	<bean name="format" id="format"
 		class="sn.ucad.gestionCommerciale.metier.Format"></bean> <!-- Bean format -->
-	<bean name="conditionnement"
+	<bean name="conditionnement" id ="conditionnement"
 		class="sn.ucad.gestionCommerciale.metier.Conditionnement"></bean> <!-- Bean conditionnement -->
-	<bean name="marque"
+	<bean name="marque" id="marque"
 		class="sn.ucad.gestionCommerciale.metier.Marque"></bean> <!-- Bean marque -->
 
 
 	<!-- Dao -->
-	<bean name="commercantDao" 
+	<bean name="commercantDao" id="commercantDao"
 		class="sn.ucad.gestionCommerciale.dao.CommercantDao"></bean> <!-- Bean CommercantDao -->
-
 
 	<!-- service -->
 	<bean name="commercantService" id="commercantService"

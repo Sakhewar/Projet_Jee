@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="my.css"></h:outputStylesheet>
+</h:head>
+
+<h:body>
+
+	<div class="row">
+
+		<div class="container-fluid form col-md-3" style="margin-left: 500px;">
+			<div style="margin-left: 40px;">
+				<p:graphicImage value="./img/logo.jpg"  />
+			</div>
+			<h:form styleClass="form-horizontal" id="InsertForm">
+				<div class="form-group">
+					<h:outputLabel for="login" value="E-mail :" />
+					<div>
+						<h:inputText id="login" styleClass="form-control" size="30"
+							maxlength="30" required="true" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel for="mdp" value="Mot De Passe :"/>
+					<div>
+						<h:inputSecret id="mdp" styleClass="form-control" size="30"
+							maxlength="30" required="true" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<p:commandButton
+						style="background:#fcb300 ; color : black; font-weight:bold; "
+						value="Se connecter" styleClass="form-control"></p:commandButton>
+				</div>
+
+			</h:form>
+
+			<p
+				style="background: #f9f9f9; padding: 15px; border: 1px solid #abc; padding-left:30px;
+				box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial">
+				Mot de passe Oublié ?&nbsp;&nbsp;&nbsp;
+				<p:link
+					style="font-size:15px; text-decoration:none; 
+					font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial">Cliquez Ici</p:link>
+			</p>
+		</div>
+	</div>
+
+</h:body>
+
+</html>

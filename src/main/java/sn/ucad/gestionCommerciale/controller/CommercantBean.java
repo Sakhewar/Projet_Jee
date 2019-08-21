@@ -5,14 +5,18 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
 import sn.ucad.gestionCommerciale.metier.Categorie;
 import sn.ucad.gestionCommerciale.metier.Conditionnement;
 import sn.ucad.gestionCommerciale.metier.Format;
 import sn.ucad.gestionCommerciale.metier.Marque;
 import sn.ucad.gestionCommerciale.metier.Produit;
 import sn.ucad.gestionCommerciale.service.CommercantService;
+import sn.ucad.gestionCommerciale.utilitaire.JpaUtil;
 import sn.ucad.gestionCommerciale.utilitaire.SpringUtil;
 
 /**
@@ -22,7 +26,7 @@ import sn.ucad.gestionCommerciale.utilitaire.SpringUtil;
 
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class CommercantBean implements Serializable {
 	
 	/*
@@ -32,7 +36,7 @@ public class CommercantBean implements Serializable {
 	
 	private CommercantService commercantservice = new CommercantService() ;
 	
-	private Categorie categorie = new Categorie();
+/*	private Categorie categorie = new Categorie();
 		
 	private Format format = new Format() ;
 	
@@ -48,9 +52,11 @@ public class CommercantBean implements Serializable {
 	private static final long serialVersionUID = 6213491104039114607L;
 	
 	
-	private CommercantService commercantservice = (CommercantService) SpringUtil.getBean("commercantService") ; 
+    private CommercantService commercantservice = (CommercantService) SpringUtil.getBean("commercantService") ; 
 	
 	private Produit produit =( Produit ) SpringUtil.getBean("produit") ; 
+	
+	private Produit selectedProduit = (Produit) SpringUtil.getBean("produit") ;
 
 	private Categorie categorie = (Categorie) SpringUtil.getBean("categorie") ; 
 
@@ -133,55 +139,21 @@ public class CommercantBean implements Serializable {
 		return( commercantservice.affichage() );
 	}
 	
-	/*public void delete(Produit produit) {
-	//CommercantService commercantservice = (CommercantService) SpringUtil.getBean("commercantService") ;  
-	commercantservice.delete(produit);
-	System.out.println("produit supprimé")  ;
-
+	public Object aff() {
+		  return (commercantservice.aff() ) ; 
 	}
 	
-	public String deleteprod(Produit produit) {
-		//CommercantService commercantservice = (CommercantService) SpringUtil.getBean("commercantService") ;  
-		commercantservice.delete(produit);
-		System.out.println("produit supprimé")  ;
-		return "affichage" ; 
-		
-	}*/
+	public String delete(Produit produit) {
+		System.out.println("produit supprimé") ;
+		return "insertionproduit" ; 
+	}
+	
+
 	
 	public void update(Produit produit) {
 		commercantservice.update(produit);
 	}
-	
-	/*public void clear(Produit produit) {
-		 
-		/*Categorie categorie = new Categorie() ; 
-		Format format = new Format() ; 
-		Marque marque = new Marque() ; 
-		Conditionnement conditionnement = new Conditionnement() ; 
 		
-		
-		produit.setLibelle(null);
-		categorie.setIdcategorie(null);
-		produit.setCategorieBean(categorie);
-		format.setIdformat(null);
-		produit.setFormatBean(format);
-		marque.setIdmarque(null);
-		produit.setMarqueBean(marque);
-		conditionnement.setIdconditionnement(null);
-		produit.setConditionnementBean(conditionnement);
-		produit.setDescription(null);
-		produit.setPrixu(0.0);
-		produit.setPrixachat(0.0);
-		produit.setQuantiteprod(null);
-		
-	}*/
-	
-	
-	
-	
-	
-	
-	
 	
 	public List<Categorie> categorie() {
 		 //CommercantService commercantservice = (CommercantService) SpringUtil.getBean("commercantService") ;
@@ -202,6 +174,14 @@ public class CommercantBean implements Serializable {
 		// CommercantService commercantservice = (CommercantService) SpringUtil.getBean("commercantService") ;
 		return( commercantservice.conditionnement());
 
+	}
+
+	public Produit getSelectedProduit() {
+		return selectedProduit;
+	}
+
+	public void setSelectedProduit(Produit selectedProduit) {
+		this.selectedProduit = selectedProduit;
 	}
 	
 

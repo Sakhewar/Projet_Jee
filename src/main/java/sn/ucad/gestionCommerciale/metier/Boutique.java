@@ -15,7 +15,7 @@ public class Boutique implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idboutique;
 
 	private String adresse;
@@ -30,18 +30,14 @@ public class Boutique implements Serializable {
 	@JoinColumn(name="idcommercant")
 	private Commercant commercant;
 
-	//bi-directional many-to-one association to Quartier
-	@ManyToOne
-	@JoinColumn(name="idquartier")
-	private Quartier quartier;
-
-	//bi-directional many-to-one association to Ravitaillement
-	@OneToMany(mappedBy="boutique", fetch=FetchType.EAGER)
-	private List<Ravitaillement> ravitaillements;
-
 	//bi-directional many-to-one association to Stockboutique
 	@OneToMany(mappedBy="boutique", fetch=FetchType.EAGER)
 	private List<Stockboutique> stockboutiques;
+
+	//bi-directional many-to-one association to Localisation
+	@ManyToOne
+	@JoinColumn(name="idlocalisation")
+	private Localisation localisation;
 
 	public Boutique() {
 	}
@@ -78,36 +74,6 @@ public class Boutique implements Serializable {
 		this.commercant = commercant;
 	}
 
-	public Quartier getQuartier() {
-		return this.quartier;
-	}
-
-	public void setQuartier(Quartier quartier) {
-		this.quartier = quartier;
-	}
-
-	public List<Ravitaillement> getRavitaillements() {
-		return this.ravitaillements;
-	}
-
-	public void setRavitaillements(List<Ravitaillement> ravitaillements) {
-		this.ravitaillements = ravitaillements;
-	}
-
-	public Ravitaillement addRavitaillement(Ravitaillement ravitaillement) {
-		getRavitaillements().add(ravitaillement);
-		ravitaillement.setBoutique(this);
-
-		return ravitaillement;
-	}
-
-	public Ravitaillement removeRavitaillement(Ravitaillement ravitaillement) {
-		getRavitaillements().remove(ravitaillement);
-		ravitaillement.setBoutique(null);
-
-		return ravitaillement;
-	}
-
 	public List<Stockboutique> getStockboutiques() {
 		return this.stockboutiques;
 	}
@@ -128,6 +94,14 @@ public class Boutique implements Serializable {
 		stockboutique.setBoutique(null);
 
 		return stockboutique;
+	}
+
+	public Localisation getLocalisation() {
+		return this.localisation;
+	}
+
+	public void setLocalisation(Localisation localisation) {
+		this.localisation = localisation;
 	}
 
 }

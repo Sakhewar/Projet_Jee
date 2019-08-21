@@ -14,7 +14,7 @@ public class Administrateur implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idadministrateur;
 
 	//bi-directional one-to-one association to Utilisateur

@@ -6,155 +6,187 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
-	
+
 	<ui:composition template="../../template/templateCom.xhtml">
 
-	<ui:define name="center">
+		<ui:define name="center">
 
-		<div class="container">
-		
-		        
-            <br></br> Ajouter Un Produit<br></br><br></br>
-       
-			<div class="row">
-			
-				<div class="container-fluid form">
-					<h:form  styleClass="form-horizontal"
-						class="col-md-4 col-lg-6 col-xs-12 col-sm-12" id="InsertForm">
-
-						<div class="form-group">
-							<h:outputLabel for="libelle" value="Libellé :" />
-							<div>
-								<h:inputText id="libelle" value="#{commercantBean.produit.libelle}" styleClass="form-control"
-									size="30" maxlength="30" required="true"
-									class="form-control" />
-							</div>
-						</div>
-						
-						 	<div class="form-group">
-							<h:outputLabel for="categorie" value="Categorie :" />
-							<div >
-								<p:selectOneMenu id="categorie"
-									value="#{commercantBean.categorie.idcategorie}"
-									styleClass="form-control" size="30" maxlength="30" style = "width: 518px ; "
-									required="true">
-
-									<f:selectItems value="#{commercantBean.categorie()}" var="x"
-										itemLabel="#{x.libellecategorie}" itemValue="#{x.idcategorie}">
-									</f:selectItems>
-								</p:selectOneMenu>
-							</div>
-							
-						</div>
-						
-						<div class="form-group">
-							<h:outputLabel for="format" value="Format" />
-							
-							<div >
-								<p:selectOneMenu id="format"
-									value="#{commercantBean.format.idformat}" style = "width: 518px ; "
-									styleClass="form-control" size="30" maxlength="30"
-									required="true">
-
-									<f:selectItems value="#{commercantBean.format()}" var="x"
-										itemLabel="#{x.libelleformat}" itemValue="#{x.idformat}">
-									</f:selectItems>
-								</p:selectOneMenu>
-							</div>
-							
-						</div>
-						
-						<div class="form-group">
-							<h:outputLabel for="marque" value="Marque:" />
-							<div >
-								<p:selectOneMenu id="marque"
-									value="#{commercantBean.marque.idmarque}" style = "width: 518px ; "
-									styleClass="form-control" size="30" maxlength="30"
-									required="true">
-
-									<f:selectItems value="#{commercantBean.marque()}" var="x"
-										itemLabel="#{x.libellemarque}" itemValue="#{x.idmarque}">
-									</f:selectItems>
-								</p:selectOneMenu>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<h:outputLabel for="conditionnement" value="Conditionnement :" />
-							<div >
-								<p:selectOneMenu id="conditionnement" style = "width: 518px ; "
-									value="#{commercantBean.conditionnement.idconditionnement}"
-									styleClass="form-control" size="30" maxlength="30"
-									required="true">
-
-									<f:selectItems value="#{commercantBean. conditionnement()}" var="x"
-										itemLabel="#{x.libelleconditionnement}" itemValue="#{x.idconditionnement}">
-									</f:selectItems>
-								</p:selectOneMenu>
-							</div>
-						</div> 
-
-						<div class="form-group">
-							<h:outputLabel for="description" value="Description :" />
-							<div>
-								<h:inputText id="description" value="#{commercantBean.produit.description}" styleClass="form-control"
-									size="30" maxlength="30" required="true"
-									class="form-control" />
-							</div>
-						</div>
-						
-						
-						<div class="form-group">
-							<h:outputLabel for="quantite" value="Quantité :" />
-							<div>
-								<h:inputText id="quantite" value="#{commercantBean.produit.quantiteprod}" styleClass="form-control"
-									size="30" maxlength="30" required="true"
-									class="form-control" />
-							</div>
-						</div>
-						
-					
-						<div class="form-group">
-							<h:outputLabel for="prixunitaire" value="Prix Unitaire :" />
-							<div>
-								<h:inputText id="prixunitaire" value="#{commercantBean.produit.prixu}" styleClass="form-control"
-									size="30" maxlength="30" required="true"
-									class="form-control" />
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<h:outputLabel for="prixachat" value="Prix Achat :" />
-							
-							
-							
-							<div>
-								<h:inputText id="prixachat" value="#{commercantBean.produit.prixachat}" styleClass="form-control"
-									size="30" maxlength="30" required="true"
-									class="form-control" />
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="btnadd">
-								<h:commandButton action ="#{commercantBean.save()}" value="Ajouter" class="btn btn-warning" />
-							</div>
-						</div>
-					</h:form>
-				</div>
+			<div style="float: right; margin-top: 45px; margin-right: 10px">
+				<p:link value="Retourner à l'affichage des produits"
+					outcome="/commercant/produit/affichageproduit" />
 			</div>
-		</div>
 
 
+			<div style="margin-left: 200px">
+
+				<br />
+
+				<div class="row">
+
+					<div class="container-fluid form">
+						<h:form styleClass="form-horizontal"
+							class="col-md-6 col-lg-10 col-xs-12 col-sm-12" id="InsertForm">
+
+							<div class="row" style="padding-left: 25px;">
+								<!-- ouverture row -->
+
+								<div class="form-group">
+									<h:outputLabel for="libelle" value="Libellé :" />
+									<div>
+										<h:inputText id="libelle"
+											value="#{commercantBean.produit.libelle}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true" />
+									</div>
+								</div>
+
+								<div class="form-group" style="margin-left: 50px;">
+									<h:outputLabel for="categorie" value="Categorie :" />
+									<div>
+										<p:selectOneMenu id="categorie"
+											value="#{commercantBean.categorie.idcategorie}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true">
+
+											<f:selectItems value="#{commercantBean.categorie()}" var="x"
+												itemLabel="#{x.libellecategorie}"
+												itemValue="#{x.idcategorie}">
+											</f:selectItems>
+										</p:selectOneMenu>
+									</div>
+
+								</div>
+
+							</div>
+							<!-- fermeture row -->
+
+							<div class="row" style="padding-left: 25px;">
+								<!-- ouverture row -->
+
+								<div class="form-group">
+									<h:outputLabel for="description" value="Description :" />
+									<div>
+										<h:inputText id="description"
+											value="#{commercantBean.produit.description}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true" />
+									</div>
+								</div>
+
+								<div class="form-group" style="margin-left: 50px;">
+									<h:outputLabel for="format" value="Format" />
+
+									<div>
+										<p:selectOneMenu id="format"
+											value="#{commercantBean.format.idformat}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true">
+
+											<f:selectItems value="#{commercantBean.format()}" var="x"
+												itemLabel="#{x.libelleformat}" itemValue="#{x.idformat}">
+											</f:selectItems>
+										</p:selectOneMenu>
+									</div>
+
+								</div>
+
+							</div>
+							<!-- fermeture row -->
+
+							<div class="row" style="padding-left: 25px;">
+								<!-- ouverture row -->
+
+								<div class="form-group">
+									<h:outputLabel for="quantite" value="Quantité :" />
+									<div>
+										<h:inputText id="quantite"
+											value="#{commercantBean.produit.quantiteprod}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true" />
+									</div>
+								</div>
+
+								<div class="form-group" style="margin-left: 50px;">
+									<h:outputLabel for="marque" value="Marque:" />
+									<div>
+										<p:selectOneMenu id="marque"
+											value="#{commercantBean.marque.idmarque}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true">
+
+											<f:selectItems value="#{commercantBean.marque()}" var="x"
+												itemLabel="#{x.libellemarque}" itemValue="#{x.idmarque}">
+											</f:selectItems>
+										</p:selectOneMenu>
+									</div>
+								</div>
+
+							</div>
+							<!--  fermeture row  -->
+
+							<div class="row" style="padding-left: 25px;">
+								<!-- ouverture row -->
+
+								<div class="form-group">
+									<h:outputLabel for="prixunitaire" value="Prix Unitaire :" />
+									<div>
+										<h:inputText id="prixunitaire"
+											value="#{commercantBean.produit.prixu}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true" />
+									</div>
+								</div>
+
+								<div class="form-group" style="margin-left: 40px;">
+									<h:outputLabel for="conditionnement" value="Conditionnement :" />
+									<div>
+										<p:selectOneMenu id="conditionnement"
+											value="#{commercantBean.conditionnement.idconditionnement}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true">
+
+											<f:selectItems value="#{commercantBean. conditionnement()}"
+												var="x" itemLabel="#{x.libelleconditionnement}"
+												itemValue="#{x.idconditionnement}">
+											</f:selectItems>
+										</p:selectOneMenu>
+									</div>
+								</div>
+
+							</div>
+							<!-- fermeture row -->
 
 
-	</ui:define>
-	
-		<ui:define name="menu">
+							<div class="row" style="padding-left: 25px;">
+								<!-- ouverture de row -->
+								<div class="form-group">
+									<h:outputLabel for="prixachat" value="Prix Achat :" />
+									<div>
+										<h:inputText id="prixachat"
+											value="#{commercantBean.produit.prixachat}"
+											styleClass="form-control" size="30" maxlength="30"
+											required="true" />
+									</div>
+								</div>
 
-			<ui:include src="menucom.xhtml"></ui:include>
+								<div class="form-group" style="margin-left: -180px;">
+									<h:outputLabel value="  &nbsp;" />
+									<div class="btnadd">
+										<h:commandButton action="#{commercantBean.save()}"
+											value="Ajouter" class="btn btn-warning" />
+									</div>
+								</div>
+							</div>
+							<!-- fermeture de row -->
+						</h:form>
+					</div>
+				</div>
+
+			</div>
+
+
 
 		</ui:define>
 
-</ui:composition>
+	</ui:composition>
 </div>

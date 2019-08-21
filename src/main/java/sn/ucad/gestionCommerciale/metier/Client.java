@@ -15,10 +15,10 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idclient;
 
-	private String adresselivraisondefault;
+	private String adresselivraisondefaut;
 
 	private String numero;
 
@@ -51,12 +51,12 @@ public class Client implements Serializable {
 		this.idclient = idclient;
 	}
 
-	public String getAdresselivraisondefault() {
-		return this.adresselivraisondefault;
+	public String getAdresselivraisondefaut() {
+		return this.adresselivraisondefaut;
 	}
 
-	public void setAdresselivraisondefault(String adresselivraisondefault) {
-		this.adresselivraisondefault = adresselivraisondefault;
+	public void setAdresselivraisondefaut(String adresselivraisondefaut) {
+		this.adresselivraisondefaut = adresselivraisondefaut;
 	}
 
 	public String getNumero() {

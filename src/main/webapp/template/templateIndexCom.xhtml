@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view locale="fr_FR">
+
+	<h:head>
+
+		<title><ui:insert name="title">Commerçant</ui:insert></title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="my.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="tableau.css"></h:outputStylesheet>
+
+	</h:head>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="100" styleClass="header"
+			style="background-color: white; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	border: 1px solid #abc;"
+			collapsible="true" gutter="0">
+
+			<h:form style="padding: 15px;">
+
+				<div style="float: left;">
+					<div>
+						<p:link outcome="/commercant/index">
+							<p:graphicImage width="200" height="40" value="img/acc-01-01.jpg" />
+						</p:link>
+					</div>
+
+				</div>
+
+				<div style="float: right;">
+
+					<p:button styleClass="link" icon="ui-icon-calculator"
+						style="font-size:15px ; font-weight:bold;background:white; boder:0; 
+						 font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial "
+						value="Gérer Le Stock" outcome="/template/templateIndexCom" />
+
+					<p:button styleClass="link" icon="ui-icon-person"
+						style="font-size:15px ; font-weight:bold;background:white; boder:0; 
+						 font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial "
+						value="Gérer Les Clients" outcome="/template/templateIndexCom" />
+
+					<p:button styleClass="link" icon="ui-icon-cart"
+						style="font-size:15px ; font-weight:bold; background:white; boder:0; 
+						 font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial "
+						value="Gérer Les Produits"
+						outcome="/commercant/produit/affichageproduit" />
+
+
+					<p:commandButton
+						style="font-size:15px ; font-weight:bold; background:white; boder:0; 
+						font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial "
+						styleClass="link" icon="ui-icon-power" value="Deconnexion" />
+				</div>
+			</h:form>
+
+		</p:layoutUnit>
+
+		<p:layoutUnit collapsible="true" gutter="0" position="west" size="190"
+			style="background-color:#f0f0f0 ;" styleClass="menu">
+
+			<ui:insert name="menu">Menu</ui:insert>
+
+		</p:layoutUnit>
+
+		<p:layoutUnit styleClass="center" size="2000" collapsible="true"
+			gutter="0" position="center">
+
+			<ui:insert name="center">Menu</ui:insert>
+
+		</p:layoutUnit>
+
+		<p:layoutUnit styleClass="footer"
+			style="background:black; font-size:15px; font-family: Candara, Calibri, Segoe, 'Segoe UI', Optima, Arial ;
+			padding-top:5px;"
+			position="south" size="50" collapsible="true" gutter="0">
+
+			<ui:insert name="footer">Plateforme de Gestion Commerciale Copyright © 2019 ALL rights reserved</ui:insert>
+			<ui:insert name="footer">
+				<div style="float: right;">
+					<p:button style="margin-right:7px;" icon="ui-icon-home" />
+					<p:button style="margin-right:7px;" icon="ui-icon-calendar" />
+					<p:button style="margin-right:7px;" icon="ui-icon-locked" />
+					<p:button style="margin-right:7px;" icon="ui-icon-mail-closed" />
+				</div>
+			</ui:insert>
+
+		</p:layoutUnit>
+
+
+	</p:layout>
+</f:view>
+</html>

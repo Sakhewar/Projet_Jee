@@ -2,7 +2,6 @@ package sn.ucad.gestionCommerciale.metier;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -15,7 +14,7 @@ public class Stockboutique implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idstockboutique;
 
 	private String etatstock;
@@ -23,10 +22,6 @@ public class Stockboutique implements Serializable {
 	private double prixtotal;
 
 	private Integer quantitestocktotal;
-
-	//bi-directional many-to-one association to Lignestockboutique
-	@OneToMany(mappedBy="stockboutique", fetch=FetchType.EAGER)
-	private List<Lignestockboutique> lignestockboutiques;
 
 	//bi-directional many-to-one association to Boutique
 	@ManyToOne
@@ -66,28 +61,6 @@ public class Stockboutique implements Serializable {
 
 	public void setQuantitestocktotal(Integer quantitestocktotal) {
 		this.quantitestocktotal = quantitestocktotal;
-	}
-
-	public List<Lignestockboutique> getLignestockboutiques() {
-		return this.lignestockboutiques;
-	}
-
-	public void setLignestockboutiques(List<Lignestockboutique> lignestockboutiques) {
-		this.lignestockboutiques = lignestockboutiques;
-	}
-
-	public Lignestockboutique addLignestockboutique(Lignestockboutique lignestockboutique) {
-		getLignestockboutiques().add(lignestockboutique);
-		lignestockboutique.setStockboutique(this);
-
-		return lignestockboutique;
-	}
-
-	public Lignestockboutique removeLignestockboutique(Lignestockboutique lignestockboutique) {
-		getLignestockboutiques().remove(lignestockboutique);
-		lignestockboutique.setStockboutique(null);
-
-		return lignestockboutique;
 	}
 
 	public Boutique getBoutique() {
